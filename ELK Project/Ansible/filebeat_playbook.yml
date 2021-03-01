@@ -1,0 +1,29 @@
+Jared Smith
+2021/03/01
+U of U - Cybersecurity Boot Camp
+
+---
+- name: installing and launching filebeat
+  hosts: webservers
+  become: true
+  tasks:
+
+  - name: Downloading the Filebeat Deb
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.7.1-amd64.deb
+
+  - name: Installing FileBeat
+    command: dpkg -i filebeat-7.7.1-amd64.deb
+
+  - name: Placeing filebeat.yml
+    copy:
+      src: /etc/ansible/roles/files/filebeat-configuration.yml
+      dest: /etc/filebeat/filebeat.yml
+
+  - name: Configuring and Enabling the System Module
+    command: filebeat modules enable system
+
+  - name: Setting Up Filebeat
+    command: filebeat setup
+
+  - name: Starting the Filebeat Service
+    command: service filebeat start
