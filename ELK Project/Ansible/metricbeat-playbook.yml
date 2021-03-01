@@ -1,0 +1,29 @@
+Jared Smith
+2021/03/01
+U of U - Cybersecurity Boot Camp
+
+---
+- name: MetricBeat Installation and Exicution
+  hosts: webservers
+  become: true
+  tasks:
+
+  - name: Downloading the MetricBeat Deb
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.7.1-amd64.deb
+
+  - name: Installing MetricBeat
+    command: sudo dpkg -i metricbeat-7.7.1-amd64.deb
+
+  - name: Placing the metricbeat.yml
+    copy:
+      src: /etc/ansible/roles/files/metricbeat-configuration.yml
+      dest: /etc/metricbeat/metricbeat.yml
+
+  - name: Configuring and Enabling the System Module
+    command: metricbeat modules enable system
+
+  - name: Setting Up MetricBeat
+    command: metricbeat setup
+
+  - name: Starting the MetricBeat Service
+    command: service metricbeat start
