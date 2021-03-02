@@ -48,7 +48,6 @@ The main purpose of this network is to expose a load-balanced and monitored inst
   - It records metrics/statistics data of VM's and exports them to the daskboard in Elasticsearch/Logstash.
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
@@ -130,7 +129,6 @@ SSH into the control node and follow the steps below:
 - Update the metricbeat-configuration.yml file to include the ELK private IP in lines 62 and 96.
 - Run the playbook, and navigate to http://(ELK-VM Public IP):5601/ to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? filebeat-playbook.yml
 - Where do you copy it?_ /etc/ansible/roles
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_ /etc/ansible/hosts 
