@@ -129,6 +129,8 @@ SSH into the control node and follow the steps below:
 - Update the metricbeat-configuration.yml file to include the ELK private IP in lines 62 and 96.
 - Run the playbook, and navigate to http://(ELK-VM Public IP):5601/ to check that the installation worked as expected.
 
+### Quick Reference
+
 - _Which file is the playbook? filebeat-playbook.yml
 - Where do you copy it?_ /etc/ansible/roles
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_ /etc/ansible/hosts 
